@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEXORA | Menú principal</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 25px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(ellipse at top, #32216d 0%, transparent 60%),
+        linear-gradient(135deg, #080817, #171044, #09091b);
+}
+
+.menu {
+    width: 100%;
+    max-width: 440px;
+    padding: 30px 22px;
+    text-align: center;
+    background: rgba(13, 13, 37, 0.92);
+    border: 1px solid rgba(153, 119, 255, 0.4);
+    border-radius: 25px;
+    box-shadow: 0 0 40px rgba(105, 65, 255, 0.18);
+}
+
+.logo {
+    width: 135px;
+    height: 135px;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+h1 {
+    margin: 15px 0 8px;
+    font-size: 38px;
+    letter-spacing: 5px;
+    color: #bba5ff;
+}
+
+.descripcion {
+    color: #c9c5df;
+    margin-bottom: 28px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.opcion {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin: 13px 0;
+    padding: 17px;
+    text-decoration: none;
+    color: white;
+    text-align: left;
+    background: linear-gradient(110deg, #282052, #17172f);
+    border: 1px solid #484078;
+    border-radius: 15px;
+    transition: 0.2s;
+}
+
+.opcion:hover {
+    transform: translateY(-3px);
+    border-color: #b09aff;
+    background: linear-gradient(110deg, #443080, #24204b);
+}
+
+.icono {
+    font-size: 30px;
+}
+
+.texto {
+    flex: 1;
+}
+
+.texto strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.texto small {
+    color: #c1bbdc;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.flecha {
+    color: #bba5ff;
+    font-size: 25px;
+}
+
+.pie {
+    margin-top: 25px;
+    color: #9189b7;
+    font-size: 11px;
+}
+</style>
+</head>
+
+<body>
+
+<main class="menu">
+
+    <img
+        class="logo"
+        src="nexora.jpeg"
+        alt="Logo de NEXORA"
+    >
+
+    <h1>NEXORA</h1>
+
+    <p class="descripcion">
+        Tu comunidad de Free Fire.
+        ¡Entra y participa!
+    </p>
+
+    <!-- CANAL DE WHATSAPP -->
+    <a
+        class="opcion"
+        href="https://whatsapp.com/channel/0029Vb9eHRHFHWq0rrZymC1B"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span class="icono">📢</span>
+
+        <span class="texto">
+            <strong>Canal de WhatsApp</strong>
+            <small>Noticias, novedades y anuncios</small>
+        </span>
+
+        <span class="flecha">›</span>
+    </a>
+
+    <!-- TORNEOS -->
+    <a
+        class="opcion"
+        href="https://chat.whatsapp.com/Co7pVAgzEEP4oIpK5jF2gm"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span class="icono">🏆</span>
+
+        <span class="texto">
+            <strong>Torneos</strong>
+            <small>Entra al grupo y participa</small>
+        </span>
+
+        <span class="flecha">›</span>
+    </a>
+
+    <!-- TIENDA DE DIAMANTES -->
+    <a
+        class="opcion"
+        href="diamantes.html"
+    >
+        <span class="icono">💎</span>
+
+        <span class="texto">
+            <strong>Venta de diamantes</strong>
+            <small>Diamantes a buen precio · Free Fire</small>
+        </span>
+
+        <span class="flecha">›</span>
+    </a>
+
+    <p class="pie">
+        © 2026 NEXORA · Comunidad Free Fire
+    </p>
+
+</main>
+
+</body>
+</html>
