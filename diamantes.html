@@ -4,244 +4,448 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXORA | Tienda de diamantes</title>
+<meta name="theme-color" content="#090812">
+<meta name="description" content="NEXORA - Tienda de diamantes para Free Fire.">
+
+<title>NEXORA | Diamantes Free Fire</title>
 
 <style>
-* { box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-    --violeta: #a995ff;
-    --morado: #7545df;
-    --fondo: #080817;
+    --bg: #090812;
+    --panel: #121020;
+    --panel2: #19152b;
+    --purple: #9365ff;
+    --purple2: #7040e8;
+    --white: #ffffff;
+    --muted: #aaa5bd;
+    --border: rgba(165,130,255,.17);
+    --green: #20c879;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     min-height: 100vh;
-    padding: 25px 15px;
-    font-family: Arial, sans-serif;
-    color: white;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
     background:
-        radial-gradient(ellipse at 50% 0%, #50319b77, transparent 55%),
-        linear-gradient(135deg, #080817, #171044, #09091b);
-    background-size: 100% 140%;
-    animation: fondoVivo 9s ease-in-out infinite alternate;
+        radial-gradient(ellipse at 50% -10%, #6736b733, transparent 50%),
+        radial-gradient(circle at 90% 60%, #5724a411, transparent 35%),
+        var(--bg);
+    overflow-x: hidden;
 }
 
-.contenedor {
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .15;
+    background-image: radial-gradient(#a98aff 1px, transparent 1px);
+    background-size: 35px 35px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+button, a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.topbar {
     width: 100%;
-    max-width: 850px;
-    margin: auto;
-    text-align: center;
-    animation: aparecer 0.8s ease-out both;
+    padding: 17px 7%;
+    border-bottom: 1px solid var(--border);
+    background: #0c0a16c9;
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
 }
 
-.logo {
-    width: 95px;
-    height: 95px;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.brand img {
+    width: 39px;
+    height: 39px;
     object-fit: contain;
-    border-radius: 18px;
-    filter: drop-shadow(0 0 12px #8c66ff88);
-    animation: flotar 3s ease-in-out infinite;
-}
-
-h1 {
-    color: #c2afff;
-    letter-spacing: 6px;
-    margin-bottom: 8px;
-    text-shadow: 0 0 18px #8b5cff88;
-}
-
-.subtitulo {
-    color: #d0c8ef;
-    margin-bottom: 28px;
+    border-radius: 10px;
 }
 
 .volver {
-    display: inline-block;
-    color: #ded4ff;
     text-decoration: none;
-    margin-bottom: 22px;
-    padding: 12px 18px;
-    border: 1px solid #6751a5;
-    border-radius: 12px;
-    background: #211b46;
-    transition: 0.25s;
+    color: #d1c3ff;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .2s;
 }
 
 .volver:hover {
-    background: #493080;
-    box-shadow: 0 0 20px #8b5cff66;
-    transform: translateY(-2px);
+    color: white;
+}
+
+main {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 15px 48px;
+    animation: aparecer .7s ease both;
+}
+
+.etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 15px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    color: #c8b4ff;
+    background: #8b5cff12;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    margin-bottom: 22px;
+}
+
+.punto {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--green);
+}
+
+.hero h1 {
+    font-size: clamp(35px, 6vw, 65px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #c8b5ff, #8151ff, #e1d5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 17px;
+    line-height: 1.7;
+}
+
+.separador {
+    width: 70px;
+    height: 3px;
+    border-radius: 5px;
+    margin: 25px auto 0;
+    background: linear-gradient(90deg, transparent, var(--purple), transparent);
+}
+
+.seccion-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.seccion-titulo h2 {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.seccion-titulo span {
+    font-size: 11px;
+    color: var(--muted);
 }
 
 .paquetes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+    padding-bottom: 35px;
 }
 
 .paquete {
     position: relative;
     overflow: hidden;
-    padding: 23px 16px;
-    background: linear-gradient(145deg, #201944, #100f2b);
-    border: 1px solid #51417f;
+    padding: 25px 20px;
+    background: linear-gradient(145deg, #19152a, #100e1c);
+    border: 1px solid var(--border);
     border-radius: 19px;
-    box-shadow: 0 8px 25px #00000022;
-    animation: tarjetaEntrada 0.65s ease-out both;
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.paquete:nth-child(2) { animation-delay: 0.08s; }
-.paquete:nth-child(3) { animation-delay: 0.16s; }
-.paquete:nth-child(4) { animation-delay: 0.24s; }
-.paquete:nth-child(5) { animation-delay: 0.32s; }
-.paquete:nth-child(6) { animation-delay: 0.40s; }
-
-.paquete::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 65%;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(
-        110deg,
-        transparent,
-        #ffffff12,
-        #b9a0ff22,
-        transparent
-    );
-    transform: skewX(-20deg);
-    transition: left 0.7s ease;
-}
-
-.paquete:hover::before {
-    left: 150%;
+    transition: .3s ease;
+    animation: aparecer .7s ease both;
 }
 
 .paquete:hover {
-    transform: translateY(-7px) scale(1.02);
-    border-color: #b9a0ff;
-    box-shadow:
-        0 0 12px #9064ff66,
-        0 0 35px #7545df33;
+    transform: translateY(-6px);
+    border-color: #966aff;
+    box-shadow: 0 12px 40px #7545df20;
 }
 
-.diamantes {
-    font-size: 34px;
-    margin-bottom: 12px;
-    filter: drop-shadow(0 0 7px #77baff88);
-    transition: transform 0.3s;
+.paquete.destacado {
+    border-color: #9062ff88;
+    background: linear-gradient(145deg, #281c47, #130f23);
 }
 
-.paquete:hover .diamantes {
-    transform: scale(1.18) rotate(-7deg);
+.tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 7px 12px;
+    background: linear-gradient(90deg, #8656f5, #b08aff);
+    color: white;
+    font-size: 9px;
+    font-weight: 900;
+    border-radius: 0 0 0 10px;
+    letter-spacing: .6px;
+}
+
+.gema {
+    width: 53px;
+    height: 53px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: #8656f51c;
+    border: 1px solid #9569ff33;
+    font-size: 28px;
+    margin-bottom: 18px;
 }
 
 .cantidad {
-    font-size: 21px;
-    font-weight: bold;
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -.7px;
+}
+
+.descripcion {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 6px;
 }
 
 .precio {
-    font-size: 24px;
-    color: #c2afff;
-    margin: 13px 0 18px;
-    font-weight: bold;
-    text-shadow: 0 0 12px #7545df44;
+    font-size: 26px;
+    font-weight: 900;
+    color: #c5aaff;
+    margin: 20px 0;
 }
 
-button, .contacto {
-    cursor: pointer;
-    display: block;
+.comprar {
     width: 100%;
     padding: 13px;
-    border: 1px solid #a18aff55;
-    border-radius: 11px;
-    background: linear-gradient(100deg, #7545df, #4934a6);
     color: white;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 14px;
-    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    border: 1px solid #a68aff55;
+    border-radius: 10px;
+    background: linear-gradient(110deg, #8050ed, #6338ca);
+    font-size: 12px;
+    font-weight: 800;
+    transition: .25s;
 }
 
-button:hover, .contacto:hover {
-    filter: brightness(1.15);
+.comprar:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 22px #8957ff55;
     transform: translateY(-2px);
-    box-shadow: 0 0 18px #8b5cff55;
 }
 
-button:active, .contacto:active {
-    transform: scale(0.97);
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin: 20px 0 55px;
 }
 
-.mini-menu {
+.beneficio {
+    background: #ffffff06;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 17px 10px;
+    text-align: center;
+}
+
+.beneficio strong {
+    display: block;
+    font-size: 12px;
+    margin: 8px 0 5px;
+}
+
+.beneficio span {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.icono {
+    font-size: 21px;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 28px 15px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 2;
+}
+
+footer strong {
+    color: #c3aaff;
+    letter-spacing: 2px;
+}
+
+/* VENTANA DE COMPRA */
+
+.modal {
     display: none;
     position: fixed;
     inset: 0;
     z-index: 10;
-    padding: 18px;
+    background: #05040bdc;
+    backdrop-filter: blur(12px);
     align-items: center;
     justify-content: center;
-    background: #03020bd9;
-    backdrop-filter: blur(8px);
+    padding: 18px;
 }
 
-.mini-menu.abierto {
+.modal.abierto {
     display: flex;
-    animation: fondoEntrada 0.25s ease-out;
+    animation: aparecer .2s ease;
 }
 
 .ventana {
     width: 100%;
-    max-width: 390px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 25px;
-    background: linear-gradient(145deg, #201944, #100f2b);
-    border: 1px solid #a995ff;
+    max-width: 410px;
+    padding: 30px;
+    background: linear-gradient(145deg, #21183b, #100e1c);
+    border: 1px solid #9b75ff66;
     border-radius: 22px;
-    box-shadow: 0 0 45px #7545df55;
-    animation: ventanaEntrada 0.3s ease-out;
-}
-
-.ventana h2 {
-    color: #c4b2ff;
-    margin-top: 0;
-}
-
-.detalle {
-    padding: 15px;
-    margin: 18px 0;
-    border: 1px solid #574487;
-    border-radius: 12px;
-    background: #242047;
-    line-height: 1.8;
-}
-
-.contacto {
-    margin: 9px 0;
-    background: linear-gradient(100deg, #16864d, #11683d);
-    border-color: #6de6a455;
+    box-shadow: 0 0 70px #7545df35;
+    animation: subir .3s ease;
+    position: relative;
 }
 
 .cerrar {
-    margin-top: 10px;
-    background: #393452;
+    position: absolute;
+    right: 17px;
+    top: 15px;
+    border: 0;
+    background: #ffffff10;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    font-size: 19px;
 }
 
-.nota {
-    color: #aaa3ce;
+.modal-gema {
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: #895aff22;
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.ventana h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.ventana > p {
     font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.resumen {
+    padding: 17px;
+    margin: 22px 0;
+    background: #ffffff08;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 9px 0;
+    font-size: 12px;
+}
+
+.fila span {
+    color: var(--muted);
+}
+
+.fila strong {
+    text-align: right;
+}
+
+.total {
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 14px;
+}
+
+.total strong {
+    color: #c4a8ff;
+    font-size: 19px;
+}
+
+.whatsapp {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: 0;
+    border-radius: 11px;
+    background: linear-gradient(100deg, #1cae68, #087c48);
+    color: white;
+    font-size: 13px;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.whatsapp:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+.seguridad {
+    text-align: center;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 15px;
     line-height: 1.6;
-    margin-top: 25px;
 }
 
 @keyframes aparecer {
@@ -249,36 +453,81 @@ button:active, .contacto:active {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes tarjetaEntrada {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes subir {
+    from { opacity: 0; transform: translateY(15px) scale(.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes flotar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+@media(max-width: 750px) {
+    .paquetes {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-@keyframes fondoVivo {
-    from { background-position: 50% 0%; }
-    to { background-position: 50% 100%; }
+@media(max-width: 480px) {
+    main {
+        width: 92%;
+    }
+
+    .topbar {
+        padding: 14px 4%;
+    }
+
+    .brand {
+        font-size: 15px;
+    }
+
+    .hero {
+        padding: 55px 5px 38px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .paquetes {
+        gap: 11px;
+    }
+
+    .paquete {
+        padding: 18px 12px;
+        border-radius: 14px;
+    }
+
+    .cantidad {
+        font-size: 19px;
+    }
+
+    .precio {
+        font-size: 21px;
+    }
+
+    .beneficios {
+        gap: 7px;
+    }
+
+    .beneficio {
+        padding: 13px 5px;
+    }
+
+    .beneficio strong {
+        font-size: 10px;
+    }
+
+    .beneficio span {
+        font-size: 9px;
+    }
+
+    .ventana {
+        padding: 24px 20px;
+    }
 }
 
-@keyframes ventanaEntrada {
-    from { opacity: 0; transform: scale(0.92) translateY(10px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-@keyframes fondoEntrada {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
+@media(prefers-reduced-motion: reduce) {
     *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
 }
 </style>
@@ -286,129 +535,230 @@ button:active, .contacto:active {
 
 <body>
 
-<main class="contenedor">
+<header class="topbar">
+    <a href="nexora.html" class="brand">
+        <img src="nexora.jpeg" alt="NEXORA">
+        NEXORA
+    </a>
 
-    <a class="volver" href="nexora.html">← Volver al menú principal</a>
+    <a href="nexora.html" class="volver">
+        ← Volver al inicio
+    </a>
+</header>
 
-    <br>
+<main>
 
-    <img class="logo" src="nexora.jpeg" alt="Logo NEXORA">
+    <section class="hero">
+        <div class="etiqueta">
+            <span class="punto"></span>
+            TIENDA DE DIAMANTES
+        </div>
 
-    <h1>NEXORA</h1>
-    <p class="subtitulo">💎 Diamantes a buen precio · Free Fire</p>
+        <h1>RECARGA TU <span>JUEGO.</span></h1>
 
-    <section class="paquetes">
+        <p>
+            Consigue tus diamantes de Free Fire en NEXORA.<br>
+            Elige tu paquete y solicita tu compra.
+        </p>
 
-        <article class="paquete">
-            <div class="diamantes">💎</div>
-            <div class="cantidad">100 diamantes</div>
-            <div class="precio">$4.000 COP</div>
-            <button onclick="abrir(100, 4000)">Comprar</button>
-        </article>
+        <div class="separador"></div>
+    </section>
 
-        <article class="paquete">
-            <div class="diamantes">💎</div>
-            <div class="cantidad">341 diamantes</div>
-            <div class="precio">$10.000 COP</div>
-            <button onclick="abrir(341, 10000)">Comprar</button>
-        </article>
+    <section>
+        <div class="seccion-titulo">
+            <h2>💎 Paquetes disponibles</h2>
+            <span>PRECIOS EN COP</span>
+        </div>
 
-        <article class="paquete">
-            <div class="diamantes">💎</div>
-            <div class="cantidad">572 diamantes</div>
-            <div class="precio">$15.000 COP</div>
-            <button onclick="abrir(572, 15000)">Comprar</button>
-        </article>
+        <div class="paquetes">
 
-        <article class="paquete">
-            <div class="diamantes">💎</div>
-            <div class="cantidad">1.166 diamantes</div>
-            <div class="precio">$26.000 COP</div>
-            <button onclick="abrir(1166, 26000)">Comprar</button>
-        </article>
+            <article class="paquete">
+                <div class="gema">💎</div>
+                <div class="cantidad">100 diamantes</div>
+                <div class="descripcion">Paquete básico</div>
+                <div class="precio">$4.000</div>
+                <button class="comprar" onclick="abrir(100,4000)">
+                    COMPRAR →
+                </button>
+            </article>
 
-        <article class="paquete">
-            <div class="diamantes">💎</div>
-            <div class="cantidad">2.398 diamantes</div>
-            <div class="precio">$50.000 COP</div>
-            <button onclick="abrir(2398, 50000)">Comprar</button>
-        </article>
+            <article class="paquete">
+                <div class="gema">💎</div>
+                <div class="cantidad">341 diamantes</div>
+                <div class="descripcion">Paquete estándar</div>
+                <div class="precio">$10.000</div>
+                <button class="comprar" onclick="abrir(341,10000)">
+                    COMPRAR →
+                </button>
+            </article>
 
-        <article class="paquete">
-            <div class="diamantes">💎</div>
-            <div class="cantidad">6.160 diamantes</div>
-            <div class="precio">$120.000 COP</div>
-            <button onclick="abrir(6160, 120000)">Comprar</button>
-        </article>
+            <article class="paquete">
+                <div class="tag">POPULAR</div>
+                <div class="gema">💎</div>
+                <div class="cantidad">572 diamantes</div>
+                <div class="descripcion">Paquete popular</div>
+                <div class="precio">$15.000</div>
+                <button class="comprar" onclick="abrir(572,15000)">
+                    COMPRAR →
+                </button>
+            </article>
+
+            <article class="paquete">
+                <div class="gema">💎</div>
+                <div class="cantidad">1.166 diamantes</div>
+                <div class="descripcion">Paquete avanzado</div>
+                <div class="precio">$26.000</div>
+                <button class="comprar" onclick="abrir(1166,26000)">
+                    COMPRAR →
+                </button>
+            </article>
+
+            <article class="paquete destacado">
+                <div class="tag">DESTACADO</div>
+                <div class="gema">💎</div>
+                <div class="cantidad">2.398 diamantes</div>
+                <div class="descripcion">Paquete premium</div>
+                <div class="precio">$50.000</div>
+                <button class="comprar" onclick="abrir(2398,50000)">
+                    COMPRAR →
+                </button>
+            </article>
+
+            <article class="paquete">
+                <div class="gema">💎</div>
+                <div class="cantidad">6.160 diamantes</div>
+                <div class="descripcion">Paquete máximo</div>
+                <div class="precio">$120.000</div>
+                <button class="comprar" onclick="abrir(6160,120000)">
+                    COMPRAR →
+                </button>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="beneficios">
+
+        <div class="beneficio">
+            <div class="icono">💬</div>
+            <strong>Atención directa</strong>
+            <span>Por WhatsApp</span>
+        </div>
+
+        <div class="beneficio">
+            <div class="icono">💎</div>
+            <strong>Varios paquetes</strong>
+            <span>Elige tu recarga</span>
+        </div>
+
+        <div class="beneficio">
+            <div class="icono">🛡️</div>
+            <strong>Asesoría</strong>
+            <span>Atención personalizada</span>
+        </div>
 
     </section>
 
-    <p class="nota">
-        Pago y coordinación de compra por WhatsApp.
-        Confirma el precio y los detalles con el administrador
-        antes de realizar el pago.
-    </p>
-
 </main>
 
-<div class="mini-menu" id="miniMenu" onclick="cerrarFondo(event)">
-    <section class="ventana">
+<footer>
+    <strong>NEXORA</strong><br>
+    Diamantes a buen precio · Free Fire<br>
+    © 2026 NEXORA. Todos los derechos reservados.
+</footer>
 
-        <h2>💎 Tu paquete</h2>
-        <p>Seleccionaste:</p>
+<!-- VENTANA DE COMPRA -->
 
-        <div class="detalle">
-            <strong id="detalleCantidad"></strong><br>
-            Precio: <strong id="detallePrecio"></strong>
+<div class="modal" id="modal" onclick="cerrarFondo(event)">
+    <section class="ventana" role="dialog" aria-modal="true"
+             aria-labelledby="tituloModal">
+
+        <button class="cerrar" onclick="cerrar()" aria-label="Cerrar">
+            ×
+        </button>
+
+        <div class="modal-gema">💎</div>
+
+        <h2 id="tituloModal">Tu compra</h2>
+
+        <p>
+            Revisa los detalles de tu paquete antes de continuar.
+        </p>
+
+        <div class="resumen">
+
+            <div class="fila">
+                <span>Producto</span>
+                <strong>Free Fire</strong>
+            </div>
+
+            <div class="fila">
+                <span>Cantidad</span>
+                <strong id="cantidadModal"></strong>
+            </div>
+
+            <div class="fila total">
+                <span>Total</span>
+                <strong id="precioModal"></strong>
+            </div>
+
         </div>
 
-        <p>Contactar admin para la compra:</p>
+        <p style="margin-bottom:13px">
+            Continúa por WhatsApp para coordinar tu compra.
+        </p>
 
-        <a class="contacto" id="admin1" href="#" target="_blank"
-           rel="noopener noreferrer">WhatsApp · +57 311 527 7180</a>
+        <a class="whatsapp" id="enlaceWhatsApp"
+           href="#" target="_blank"
+           rel="noopener noreferrer">
+            CONTACTAR POR WHATSAPP →
+        </a>
 
-        <a class="contacto" id="admin2" href="#" target="_blank"
-           rel="noopener noreferrer">WhatsApp · +57 314 829 1380</a>
-
-        <button class="cerrar" onclick="cerrar()">Cerrar menú</button>
+        <div class="seguridad">
+            Contacto oficial de NEXORA:<br>
+            +57 311 527 7180
+        </div>
 
     </section>
 </div>
 
 <script>
+const numeroWhatsApp = "573115277180";
+
 function abrir(cantidad, precio) {
-    const formatoCantidad = cantidad.toLocaleString("es-CO");
-    const formatoPrecio = "$" + precio.toLocaleString("es-CO") + " COP";
+
+    const cantidadTexto = cantidad.toLocaleString("es-CO");
+    const precioTexto = "$" + precio.toLocaleString("es-CO") + " COP";
 
     const mensaje =
         "Hola, NEXORA. Quiero comprar " +
-        formatoCantidad + " diamantes por " +
-        formatoPrecio +
+        cantidadTexto +
+        " diamantes de Free Fire por " +
+        precioTexto +
         ". ¿Cómo puedo realizar el pago?";
 
-    const mensajeURL = encodeURIComponent(mensaje);
+    document.getElementById("cantidadModal").textContent =
+        cantidadTexto + " diamantes";
 
-    document.getElementById("detalleCantidad").textContent =
-        formatoCantidad + " diamantes";
+    document.getElementById("precioModal").textContent =
+        precioTexto;
 
-    document.getElementById("detallePrecio").textContent =
-        formatoPrecio;
+    document.getElementById("enlaceWhatsApp").href =
+        "https://wa.me/" + numeroWhatsApp +
+        "?text=" + encodeURIComponent(mensaje);
 
-    document.getElementById("admin1").href =
-        "https://wa.me/573115277180?text=" + mensajeURL;
+    document.getElementById("modal").classList.add("abierto");
 
-    document.getElementById("admin2").href =
-        "https://wa.me/573148291380?text=" + mensajeURL;
-
-    document.getElementById("miniMenu").classList.add("abierto");
+    document.body.style.overflow = "hidden";
 }
 
 function cerrar() {
-    document.getElementById("miniMenu").classList.remove("abierto");
+    document.getElementById("modal").classList.remove("abierto");
+    document.body.style.overflow = "";
 }
 
 function cerrarFondo(event) {
-    if (event.target.id === "miniMenu") {
+    if (event.target.id === "modal") {
         cerrar();
     }
 }
